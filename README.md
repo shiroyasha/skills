@@ -15,6 +15,7 @@ If `~/.cursor/skills` already exists, clone elsewhere and copy or symlink each s
 ```bash
 git clone git@github.com:shiroyasha/skills.git ~/code/skills
 ln -s ~/code/skills/shipit ~/.cursor/skills/shipit
+ln -s ~/code/skills/superplane ~/.cursor/skills/superplane
 ```
 
 Restart Cursor (or start a new agent chat) so the skills load.
