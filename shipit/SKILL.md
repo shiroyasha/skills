@@ -113,13 +113,22 @@ EOF
 
 ## 5. Babysit
 
-Follow the built-in **babysit** skill: triage unresolved comments (including Bugbot), fix CI caused by this PR, and resolve real merge conflicts. Then apply this extra rule:
+Follow the built-in **babysit** skill: triage unresolved comments (including Bugbot), fix CI caused by this PR, and resolve real merge conflicts. Then apply these extra rules:
 
 **Do not update the branch just because it is behind the default branch.**
 
 Ignore GitHub "Update branch" / "out of date with `main`" (or `master`) when the PR has **no merge conflicts**. Do not merge or rebase the default branch in that case.
 
 Update from the default branch **only when there are merge conflicts** (or the user explicitly asks). Resolve conflicts while preserving intent on both sides; if intents clash, abort and ask.
+
+**Take Greptile comments with a grain of salt.**
+
+Greptile is a noisy automated reviewer. Its comments are often wrong, speculative, or style nits. A Greptile thread, review, or "request changes" is not required work.
+
+- Read the claim and check it against the code yourself.
+- Fix only when you independently confirm a real bug in this PR's scope.
+- Otherwise dismiss the thread with a short concrete reason. Do not change code to satisfy Greptile.
+- After that triage, an unresolved Greptile thread does not block merge-ready.
 
 Loop until the PR is merge-ready (green CI, comments triaged, no unresolved conflicts) or you are blocked and must ask the user.
 
